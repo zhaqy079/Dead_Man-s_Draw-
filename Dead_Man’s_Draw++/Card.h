@@ -15,7 +15,7 @@ public:
     Card(int v, CardType t)
         : value(v), cardType(t) {
     }; // Constructor with initialiser list.
-    virtual ~Card() = default;
+    virtual ~Card() = default; // destructor 
 
     virtual const CardType& type() const { return cardType; }; // Return card type 
     int getValue() const { return value; };
@@ -28,9 +28,11 @@ protected:
     int value; 
     CardType cardType;
 
-// For easier using std::vector<Card*> 
-    typedef std::vector<Card*> CardCollection;
 };
+
+// For easier using std::vector<Card*> 
+typedef std::vector<Card*> CardCollection;
+
 #endif
 
 // Reference: https://learn.microsoft.com/en-us/cpp/cpp/abstract-classes-cp
