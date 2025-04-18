@@ -2,11 +2,18 @@
 //
 
 #include "Dead_Man’s_Draw++.h"
+#include "Cards/MermaidCard.h"
+#include <iostream>
+#include <vector>
 
-
+const std::vector<int> testValues = { 2,3,4,5,6,7 };
 
 int main()
 {
-	cout << "Hello CMake." << endl;
-	return 0;
+    for (int val : testValues) {
+        Card* c = new MermaidCard(val);
+        std::cout << c->str() << std::endl;
+        delete c;
+    }
+    return 0;
 }
