@@ -28,8 +28,15 @@ bool Player::playCard(Card* card, Game& game) {
     return false;
 
 }
-//
-// 
+//  Implement print bank card feature
+void Player::printBank() const {
+    std::cout << name << "'s Bank: " << std::endl;
+    for (Card* c : bank) {
+        std::cout << c->str() << std::endl;
+    }
+}
+
+
 // Implement bankCard feature move all cards from playArea to bank 
 // Reference: https://www.geeksforgeeks.org/vector-insert-function-in-cpp-stl/
 void Player::bankCard() {
@@ -44,4 +51,12 @@ int Player::calculateScore() const {}
 // Get the Score
 int Player::getScore() const {
     return calculateScore();
+}
+
+//  Implement print play area feature
+void Player::printPlayArea() const {
+    std::cout << name << "'s PlayArea: " << std::endl;
+    for (Card* c : playArea) {
+        std::cout << c->str() << std::endl;
+    }
 }
