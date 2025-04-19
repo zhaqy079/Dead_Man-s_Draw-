@@ -28,11 +28,20 @@ bool Player::playCard(Card* card, Game& game) {
     return false;
 
 }
-
+//
+// 
 // Implement bankCard feature move all cards from playArea to bank 
 // Reference: https://www.geeksforgeeks.org/vector-insert-function-in-cpp-stl/
 void Player::bankCard() {
     bank.insert(bank.end(), playArea.begin(), playArea.end());
     // Clear exist playArea before next turn
     playArea.clear();
+}
+
+// Implement calculateScore feature, return the sum of the value of the highest card in each suit
+int Player::calculateScore() const {}
+
+// Get the Score
+int Player::getScore() const {
+    return calculateScore();
 }
