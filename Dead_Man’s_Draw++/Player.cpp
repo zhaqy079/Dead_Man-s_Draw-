@@ -46,7 +46,27 @@ void Player::bankCard() {
 }
 
 // Implement calculateScore feature, return the sum of the value of the highest card in each suit
-int Player::calculateScore() const {}
+// Reference: https://cplusplus.com/forum/general/101832/
+int Player::calculateScore() const {
+    int groupMax[10] = {0}; // Total 10 types of card, all initialise to 0 
+    // For each card in the bank, check if its the highest of the card type
+    for (Card* card : bank) {
+        int index = static_cast<int>(card->type());
+        int value = card->getValue();
+
+        if (value > groupMax[index]) {
+            groupMax[index] = value;
+        }
+    }
+
+    // Add all highest values together  
+        int total = 0;
+        for (int i = 0; i < 10; ++i) {
+            total += groupMax[i];
+        }
+
+        return total;
+}
 
 // Get the Score
 int Player::getScore() const {
