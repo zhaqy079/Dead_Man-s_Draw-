@@ -12,6 +12,7 @@ int main()
 {
     for (int val : testValues) {
         Card* c = new MermaidCard(val);
+        
         std::cout << c->str() << std::endl;
         delete c;
     }

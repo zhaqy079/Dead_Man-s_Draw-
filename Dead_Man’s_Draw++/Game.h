@@ -17,7 +17,7 @@ public:
     int finalScore();
 
 private:
-    int round();
+    int round;
     Player player1;
     Player player2;
     Player* currentPlayer;

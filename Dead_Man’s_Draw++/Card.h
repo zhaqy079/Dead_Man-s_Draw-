@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-// Define for use as paramter
+// Define for use as parameter
 class Game;
 class Player; 
 
@@ -14,7 +14,7 @@ public:
 
     Card(int v, CardType t)
         : value(v), cardType(t) {
-    }; // Constructor with initialiser list.
+    } // Constructor with initialiser list.
     virtual ~Card() = default; // destructor 
 
     virtual const CardType& type() const { return cardType; }; // Return card type 
