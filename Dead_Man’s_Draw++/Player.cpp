@@ -18,7 +18,7 @@ std::string Player::getName() const {
 bool Player::playCard(Card* card, Game& game) {
     for (Card* c : playArea) { // Loop through each card pointer in the playArea vector
         if (c->type() == card->type()) { // Compare exist card and new get card type
-            std::cout << "BUST!" << name << "loses all cards in play area." << std::endl;
+            std::cout << "BUST! " << name << "loses all cards in play area." << std::endl;
             return true; // Return true when causes bust
         }
     }
@@ -28,7 +28,7 @@ bool Player::playCard(Card* card, Game& game) {
     return false;
 
 }
-//  Implement print bank card feature
+//  Implement print bank card feature, print all cards in the player's bank
 void Player::printBank() const {
     std::cout << name << "'s Bank: " << std::endl;
     for (Card* c : bank) {
@@ -41,14 +41,14 @@ void Player::printBank() const {
 // Reference: https://www.geeksforgeeks.org/vector-insert-function-in-cpp-stl/
 void Player::bankCard() {
     bank.insert(bank.end(), playArea.begin(), playArea.end());
-    // Clear exist playArea before next turn
+    // Clear playArea before next turn
     playArea.clear();
 }
 
 // Implement calculateScore feature, return the sum of the value of the highest card in each suit
 // Reference: https://cplusplus.com/forum/general/101832/
 int Player::calculateScore() const {
-    int groupMax[10] = {0}; // Total 10 types of card, all initialise to 0 
+    int groupMax[10] = {0}; // Total 10 types of card, all initialise to 0 element array, and only one max for each card type
     // For each card in the bank, check if its the highest of the card type
     for (Card* card : bank) {
         int index = static_cast<int>(card->type());
