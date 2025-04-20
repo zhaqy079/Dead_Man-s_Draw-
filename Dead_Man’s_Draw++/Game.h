@@ -12,12 +12,11 @@ public:
     void startGame();
     void shuffleDeck(CardCollection& cards);
     void takeTurn();
-    bool isBust();
+    //bool isBust();
     void endGame();
-    int finalScore();
+    //int finalScore();
 
 private:
-    int round;
     int count = 0;
     const int TOTAL_TURNS = 10;
     Player player1;

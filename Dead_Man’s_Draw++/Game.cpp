@@ -30,7 +30,7 @@ void Game::takeTurn() {
     bool checkBusted = currentPlayer->playCard(drawnACard, *this);
 
     if (!checkBusted) {
-        std::cout << currentPlayer->getName() << "'s Play Area: " << std::endl;
+        std::cout << currentPlayer->getName() << " 's Play Area: " << std::endl;
         currentPlayer->printPlayArea();
 
         // Game continus 
