@@ -54,8 +54,27 @@ void Game::takeTurn() {
 }
 // end game show final score 
 void Game::endGame() {
+    std::cout << "--- Game Over --- " << std::endl;
+    std::cout << player1.getName() << "'s Bank: " << std::endl;
+    player1.printBank();
+    std::cout <<  "\n| Score: " << player1.getScore() << std::endl;
+    std::cout << player2.getName() << "'s Bank: " << std::endl;
+    player2.printBank();
+    std::cout << "\n| Score: " << player2.getScore() << std::endl;
+
+    // Display the winner 
+    if (player1.getScore() > player2.getScore()) {
+        std::cout << player1.getName() << " wins!" << std::endl;
+    }
+    else if (player1.getScore() < player2.getScore()) {
+        std::cout << player2.getName() << " wins!" << std::endl;
+    }
+    else {
+        std::cout << "There's a tie!" << std::endl;
+    }
 }
-int Game::finalScore() {}
+
+
 
 
 // Manually set game turn as 10, initial game 
