@@ -18,6 +18,8 @@ public:
 
 private:
     int round;
+    int count = 0;
+    const int TOTAL_TURNS = 10;
     Player player1;
     Player player2;
     Player* currentPlayer;
