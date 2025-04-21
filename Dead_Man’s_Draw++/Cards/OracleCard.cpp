@@ -7,6 +7,8 @@ void OracleCard::play(Game& game, Player& player) {
     CardCollection& deck = game.getDeck(); 
 
     // Peek the top card of the deck and process
-    Card* nextCard = deck.back(); 
-    std::cout << "The Oracle sees a " << nextCard << std::endl;
+    
+    Card* nextCard = deck.back();
+    std::cout << "The Oracle sees a " << nextCard->str() << std::endl;
+    
 }
