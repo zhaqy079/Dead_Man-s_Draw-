@@ -19,4 +19,8 @@ void CannonCard::play(Game& game, Player& player) {
             index = i;
         }
     }
+    // Discard the top card 
+    std::cout << "Discarding " << topCard->str() << " from " << opponent->getName() << "'s bank." << std::endl;
+    opponentBank.erase(opponentBank.begin() + index);
+    
 }
