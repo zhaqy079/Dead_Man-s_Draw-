@@ -12,6 +12,10 @@ Player::Player() {
 std::string Player::getName() const {
     return name;
 }
+// Return players' bank
+CardCollection& Player::getBank() {
+    return bank;
+}
 
 // Implement playCard function adds a card to the play area and remove it from the deck 
 // Reference: https://en.cppreference.com/w/cpp/language/range-for

@@ -19,6 +19,7 @@ public:
     int calculateScore() const;
     void printPlayArea() const;
     void printBank() const;
+    CardCollection& getBank();
     
 private:
     std::string name;
