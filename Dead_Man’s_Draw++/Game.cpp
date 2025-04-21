@@ -13,6 +13,24 @@
 #include <algorithm>
 #include <random>
 
+Game::Game() {}
+// Implement getter method
+Player& Game::getPlayer1(){
+    return player1;
+}
+Player& Game::getPlayer2() {
+    return player2;
+}
+Player* Game::getCurrentPlayer() {
+    return currentPlayer;
+}
+CardCollection& Game::getDeck() {
+    return deck;
+}
+CardCollection& Game::getDiscardPile() {
+    return discardPile;
+}
+
 // Create Deck to generate 54 cards ( 9 types * 6 cards ) 
 // Reference: https://codereview.stackexchange.com/questions/254769/deck-of-cards-written-in-c
 // https://stackoverflow.com/questions/26952727/i-need-help-generating-a-deck-of-cards-in-c
