@@ -15,10 +15,8 @@ public:
     std::string str() const override {
         return "Hook(" + std::to_string(value) + ")";
     }
-    void play(Game& game, Player& player) override {
-        // Implement play the top card of any suit ability at HookCard.cpp file)    
-    }
-
+    void play(Game& game, Player& player) override;
+    
 };
 
 #endif 

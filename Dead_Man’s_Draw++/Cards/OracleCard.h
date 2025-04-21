@@ -15,9 +15,7 @@ public:
     std::string str() const override {
         return "Oracle(" + std::to_string(value) + ")";
     }
-    void play(Game& game, Player& player) override {
-        // Implement peek the top card of any suit ability at OracleCard.cpp file)    
-    }
+    void play(Game& game, Player& player) override;
 
 };
 
