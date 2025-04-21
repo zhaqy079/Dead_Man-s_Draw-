@@ -37,4 +37,14 @@ void HookCard::play(Game& game, Player& player) {
             ++options;
         }
     }
+    // Let player make choice 
+    int choice;
+    std::cout << "Which card do you pick? ";
+    std::cin >> choice;
+
+    // Keep play the selected card 
+    int selectedIndex = suitMax[choice - 1];
+    Card* selectedCard = topCards[selectedIndex];
+    std::cout << "\n" << player.getName() << " draws a " << selectedCard->str() << std::endl;
+    player.playCard(selectedCard, game);
 }
