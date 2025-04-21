@@ -2,19 +2,14 @@
 //
 
 #include "Dead_Man’s_Draw++.h"
-#include "Cards/MermaidCard.h"
+#include "Game.h"
 #include <iostream>
-#include <vector>
-
-const std::vector<int> testValues = { 2,3,4,5,6,7 };
+#include "game_title.h"
 
 int main()
 {
-    for (int val : testValues) {
-        Card* c = new MermaidCard(val);
-        
-        std::cout << c->str() << std::endl;
-        delete c;
-    }
+    std::cout << GAME_TITLE << std::endl;
+    Game game;
+    game.startGame();
     return 0;
 }
