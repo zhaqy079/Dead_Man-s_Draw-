@@ -10,6 +10,7 @@ public:
     Game();// Constructor
 
     void startGame();
+    void makeDeck();
     void shuffleDeck(CardCollection& cards);
     void takeTurn();
     //bool isBust();
@@ -19,6 +20,8 @@ public:
 private:
     int count = 0;
     const int TOTAL_TURNS = 10;
+    const int TYPES = 9;
+    const int POINT_VALUE = 6;
     Player player1;
     Player player2;
     Player* currentPlayer;

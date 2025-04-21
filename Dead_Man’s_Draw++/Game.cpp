@@ -4,6 +4,25 @@
 #include <algorithm>
 #include <random>
 
+// Create Deck to generate 54 types of card ( 9 * 6 ) 
+// Reference: https://codereview.stackexchange.com/questions/254769/deck-of-cards-written-in-c
+// https://stackoverflow.com/questions/26952727/i-need-help-generating-a-deck-of-cards-in-c
+void Game::makeDeck() {
+    // Generate 54 types of card with different value 
+    for (int i = 0; i < TYPES; ++i) {
+        for (int j = 0; j < POINT_VALUE; ++j) {
+            int value{};
+            if (i == static_cast<int>(Card::Mermaid)) {
+                value = 4 + (POINT_VALUE % 6);
+            }
+            else {
+                value = 2 + (POINT_VALUE % 6);
+            }
+            // Let card pointer to the null 
+        }
+    }
+
+}
 // Place the shuffleDeck function from introduction 
 void Game::shuffleDeck(CardCollection& cards) {
     CardCollection shuffleDeck{ cards.begin(), cards.end() }; 
