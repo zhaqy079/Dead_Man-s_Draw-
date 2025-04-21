@@ -15,7 +15,7 @@ public:
     std::string str() const override {
         return "Sword(" + std::to_string(value) + ")";
     }
-    void play(Game& game, Player& player) override {}
+    void play(Game& game, Player& player) override;
         // Implement steal the top card of any suit ability at SwordCard.cpp file)    
     
 
