@@ -1,24 +1,67 @@
 #include <iostream>
 #include "Card.h"
+#include "Cards/CannonCard.h"
+#include "Cards/ChestCard.h"
+#include "Cards/KeyCard.h"
+#include "Cards/SwordCard.h"
+#include "Cards/HookCard.h"
+#include "Cards/OracleCard.h"
+#include "Cards/MapCard.h"
+#include "Cards/MermaidCard.h"
+#include "Cards/KrakenCard.h"
 #include "Game.h"
 #include <algorithm>
 #include <random>
 
-// Create Deck to generate 54 types of card ( 9 * 6 ) 
+// Create Deck to generate 54 cards ( 9 types * 6 cards ) 
 // Reference: https://codereview.stackexchange.com/questions/254769/deck-of-cards-written-in-c
 // https://stackoverflow.com/questions/26952727/i-need-help-generating-a-deck-of-cards-in-c
 void Game::makeDeck() {
     // Generate 54 types of card with different value 
     for (int i = 0; i < TYPES; ++i) {
+        Card::CardType type = static_cast<Card::CardType>(i);
+
         for (int j = 0; j < POINT_VALUE; ++j) {
             int value{};
+            // Card Mermaid have higher value which is 4,5,6,7,8,9 and others are 2,3,4,5,6,7
             if (i == static_cast<int>(Card::Mermaid)) {
-                value = 4 + (POINT_VALUE % 6);
+                value = 4 + (j % 6);
             }
             else {
-                value = 2 + (POINT_VALUE % 6);
+                value = 2 + (j % 6);
             }
-            // Let card pointer to the null 
+            // Let card pointer to the null for storing the new card objects 
+            Card* card = nullptr;
+            if (type == Card::Cannon) {
+                card = new CannonCard(value);
+            }
+            else if (type == Card::Chest) {
+                card = new ChestCard(value);
+            }
+            else if (type == Card::Key) {
+                card = new KeyCard(value);
+            }
+            else if (type == Card::Sword) {
+                card = new SwordCard(value);
+            }
+            else if (type == Card::Hook) {
+                card = new HookCard(value);
+            }
+            else if (type == Card::Oracle) {
+                card = new OracleCard(value);
+            }
+            else if (type == Card::Map) {
+                card = new MapCard(value);
+            }
+            else if (type == Card::Mermaid) {
+                card = new MermaidCard(value);
+            }
+            else if (type == Card::Kraken) {
+                card = new KrakenCard(value);
+            }
+            if (card != nullptr) {
+                deck.push_back(card); // Then add card into the deck
+            }
         }
     }
 
@@ -58,12 +101,10 @@ void Game::takeTurn() {
         std::cin >> choice;
 
         if (choice == "y") {
-            return;
+            return; 
         }
-        else {
-            currentPlayer->bankCard();  // Move play area to bank
-        }
-
+        currentPlayer->bankCard();  // Move play area to bank
+        
         // Switch player after turn ends
         // Reference: https://stackoverflow.com/questions/12737637/swap-a-pointer-between-two-objects
         currentPlayer = (currentPlayer == &player1) ? &player2 : &player1;
@@ -89,15 +130,14 @@ void Game::endGame() {
         std::cout << player2.getName() << " wins!" << std::endl;
     }
     else {
-        std::cout << "There's a tie!" << std::endl;
+        std::cout << "It's a tie!" << std::endl;
     }
 }
 
 
-
-
 // Manually set game turn as 10, initial game 
 void Game::startGame() {
+    makeDeck();
     shuffleDeck(deck);
     currentPlayer = &player1;
     std::cout << "Starting Dead Man's Draw++! " << std::endl;
