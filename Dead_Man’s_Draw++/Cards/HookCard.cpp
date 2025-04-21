@@ -46,5 +46,14 @@ void HookCard::play(Game& game, Player& player) {
     int selectedIndex = suitMax[choice - 1];
     Card* selectedCard = topCards[selectedIndex];
     std::cout << "\n" << player.getName() << " draws a " << selectedCard->str() << std::endl;
+    
+    // Remove the selected card from the bank before replaying
+    // Reference: https://stackoverflow.com/questions/21884514/how-to-find-an-object-in-stdvector
+    auto it = std::find(bank.begin(), bank.end(), selectedCard);
+    if (it != bank.end()) {
+        bank.erase(it);
+    }
+
+    // Replay the selected Card
     player.playCard(selectedCard, game);
 }
