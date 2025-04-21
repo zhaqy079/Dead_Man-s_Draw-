@@ -30,7 +30,7 @@ bool Player::playCard(Card* card, Game& game) {
 }
 //  Implement print bank card feature, print all cards in the player's bank
 void Player::printBank() const {
-    std::cout << name << "'s Bank: " << std::endl;
+   // std::cout << name << "'s Bank: " << std::endl;
     for (Card* c : bank) {
         std::cout << c->str() << std::endl;
     }
@@ -75,7 +75,7 @@ int Player::getScore() const {
 
 //  Implement print play area feature
 void Player::printPlayArea() const {
-    std::cout << name << "'s PlayArea: " << std::endl;
+   // std::cout << name << "'s PlayArea: " << std::endl;
     for (Card* c : playArea) {
         std::cout << c->str() << std::endl;
     }

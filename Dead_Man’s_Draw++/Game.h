@@ -16,6 +16,12 @@ public:
     //bool isBust();
     void endGame();
     //int finalScore();
+    // getter method for achieving card ability 
+    Player& getPlayer1();
+    Player& getPlayer2();
+    Player* getCurrentPlayer();
+    CardCollection& getDeck();
+    CardCollection& getDiscardPile();
 
 private:
     int count = 0;
