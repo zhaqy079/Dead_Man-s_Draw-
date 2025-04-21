@@ -15,9 +15,9 @@ public:
     std::string str() const override {
         return "Cannon(" + std::to_string(value) + ")";
     }
-    void play(Game& game, Player& player) override {
+    void play(Game& game, Player& player) override;
         // Implement discard the top card of any suit ability at CannonCard.cpp file)    
-    }
+    
 
 };
 
